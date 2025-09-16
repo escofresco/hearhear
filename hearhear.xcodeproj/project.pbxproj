@@ -73,9 +73,29 @@
 		ECCA77282E7997DD004391D3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		ECCA772B2E799BDF004391D3 /* Exceptions for "hearhear" folder in "hearhear" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = ECCA76CE2E7996BE004391D3 /* hearhear */;
+		};
+		ECCA772D2E799CA1004391D3 /* Exceptions for "hearhear Watch App" folder in "hearhear Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"hearhear-Watch-App-Info.plist",
+			);
+			target = ECCA76F12E7996BF004391D3 /* hearhear Watch App */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		ECCA76D12E7996BE004391D3 /* hearhear */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				ECCA772B2E799BDF004391D3 /* Exceptions for "hearhear" folder in "hearhear" target */,
+			);
 			path = hearhear;
 			sourceTree = "<group>";
 		};
@@ -91,6 +111,9 @@
 		};
 		ECCA76F62E7996BF004391D3 /* hearhear Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				ECCA772D2E799CA1004391D3 /* Exceptions for "hearhear Watch App" folder in "hearhear Watch App" target */,
+			);
 			path = "hearhear Watch App";
 			sourceTree = "<group>";
 		};
@@ -624,6 +647,7 @@
 				DEVELOPMENT_TEAM = 7229HA67NJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "hearhear-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = hearhear;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.cvtlvnd.hearhear;
@@ -653,6 +677,7 @@
 				DEVELOPMENT_TEAM = 7229HA67NJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "hearhear-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = hearhear;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.cvtlvnd.hearhear;
@@ -683,6 +708,7 @@
 				DEVELOPMENT_TEAM = 7229HA67NJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = hearhear/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = hearhear;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -698,9 +724,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cvtlvnd.hearhear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -714,6 +744,7 @@
 				DEVELOPMENT_TEAM = 7229HA67NJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = hearhear/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = hearhear;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -729,9 +760,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cvtlvnd.hearhear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -749,9 +784,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cvtlvnd.hearhearTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hearhear.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/hearhear";
 			};
 			name = Debug;
@@ -769,9 +808,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cvtlvnd.hearhearTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hearhear.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/hearhear";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -789,9 +832,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cvtlvnd.hearhearUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = hearhear;
 			};
 			name = Debug;
@@ -808,9 +855,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cvtlvnd.hearhearUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = hearhear;
 				VALIDATE_PRODUCT = YES;
 			};
