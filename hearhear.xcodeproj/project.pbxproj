@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ECCA76F32E7996BF004391D3 /* hearhear Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = ECCA76F22E7996BF004391D3 /* hearhear Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ECCA77292E7997E1004391D3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = ECCA77282E7997DD004391D3 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		ECCA76F22E7996BF004391D3 /* hearhear Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hearhear Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCA77012E7996BF004391D3 /* hearhear Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hearhear Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCA770B2E7996BF004391D3 /* hearhear Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hearhear Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECCA77282E7997DD004391D3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -153,6 +155,7 @@
 		ECCA76C62E7996BE004391D3 = {
 			isa = PBXGroup;
 			children = (
+				ECCA77282E7997DD004391D3 /* .gitignore */,
 				ECCA76D12E7996BE004391D3 /* hearhear */,
 				ECCA76DF2E7996BF004391D3 /* hearhearTests */,
 				ECCA76E92E7996BF004391D3 /* hearhearUITests */,
@@ -380,6 +383,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECCA77292E7997E1004391D3 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
