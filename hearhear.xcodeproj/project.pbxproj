@@ -1,0 +1,964 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ECCA76F32E7996BF004391D3 /* hearhear Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = ECCA76F22E7996BF004391D3 /* hearhear Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ECCA76DD2E7996BF004391D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECCA76C72E7996BE004391D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECCA76CE2E7996BE004391D3;
+			remoteInfo = hearhear;
+		};
+		ECCA76E72E7996BF004391D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECCA76C72E7996BE004391D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECCA76CE2E7996BE004391D3;
+			remoteInfo = hearhear;
+		};
+		ECCA76F42E7996BF004391D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECCA76C72E7996BE004391D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECCA76F12E7996BF004391D3;
+			remoteInfo = "hearhear Watch App";
+		};
+		ECCA77022E7996BF004391D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECCA76C72E7996BE004391D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECCA76F12E7996BF004391D3;
+			remoteInfo = "hearhear Watch App";
+		};
+		ECCA770C2E7996BF004391D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECCA76C72E7996BE004391D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECCA76F12E7996BF004391D3;
+			remoteInfo = "hearhear Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ECCA77182E7996BF004391D3 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				ECCA76F32E7996BF004391D3 /* hearhear Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		ECCA76CF2E7996BE004391D3 /* hearhear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hearhear.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECCA76DC2E7996BF004391D3 /* hearhearTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hearhearTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECCA76E62E7996BF004391D3 /* hearhearUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hearhearUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECCA76F22E7996BF004391D3 /* hearhear Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hearhear Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECCA77012E7996BF004391D3 /* hearhear Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hearhear Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECCA770B2E7996BF004391D3 /* hearhear Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hearhear Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		ECCA76D12E7996BE004391D3 /* hearhear */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = hearhear;
+			sourceTree = "<group>";
+		};
+		ECCA76DF2E7996BF004391D3 /* hearhearTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = hearhearTests;
+			sourceTree = "<group>";
+		};
+		ECCA76E92E7996BF004391D3 /* hearhearUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = hearhearUITests;
+			sourceTree = "<group>";
+		};
+		ECCA76F62E7996BF004391D3 /* hearhear Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "hearhear Watch App";
+			sourceTree = "<group>";
+		};
+		ECCA77042E7996BF004391D3 /* hearhear Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "hearhear Watch AppTests";
+			sourceTree = "<group>";
+		};
+		ECCA770E2E7996BF004391D3 /* hearhear Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "hearhear Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECCA76CC2E7996BE004391D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA76D92E7996BF004391D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA76E32E7996BF004391D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA76EF2E7996BF004391D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA76FE2E7996BF004391D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA77082E7996BF004391D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ECCA76C62E7996BE004391D3 = {
+			isa = PBXGroup;
+			children = (
+				ECCA76D12E7996BE004391D3 /* hearhear */,
+				ECCA76DF2E7996BF004391D3 /* hearhearTests */,
+				ECCA76E92E7996BF004391D3 /* hearhearUITests */,
+				ECCA76F62E7996BF004391D3 /* hearhear Watch App */,
+				ECCA77042E7996BF004391D3 /* hearhear Watch AppTests */,
+				ECCA770E2E7996BF004391D3 /* hearhear Watch AppUITests */,
+				ECCA76D02E7996BE004391D3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECCA76D02E7996BE004391D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECCA76CF2E7996BE004391D3 /* hearhear.app */,
+				ECCA76DC2E7996BF004391D3 /* hearhearTests.xctest */,
+				ECCA76E62E7996BF004391D3 /* hearhearUITests.xctest */,
+				ECCA76F22E7996BF004391D3 /* hearhear Watch App.app */,
+				ECCA77012E7996BF004391D3 /* hearhear Watch AppTests.xctest */,
+				ECCA770B2E7996BF004391D3 /* hearhear Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECCA76CE2E7996BE004391D3 /* hearhear */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECCA77192E7996BF004391D3 /* Build configuration list for PBXNativeTarget "hearhear" */;
+			buildPhases = (
+				ECCA76CB2E7996BE004391D3 /* Sources */,
+				ECCA76CC2E7996BE004391D3 /* Frameworks */,
+				ECCA76CD2E7996BE004391D3 /* Resources */,
+				ECCA77182E7996BF004391D3 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECCA76F52E7996BF004391D3 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				ECCA76D12E7996BE004391D3 /* hearhear */,
+			);
+			name = hearhear;
+			packageProductDependencies = (
+			);
+			productName = hearhear;
+			productReference = ECCA76CF2E7996BE004391D3 /* hearhear.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ECCA76DB2E7996BF004391D3 /* hearhearTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECCA771C2E7996BF004391D3 /* Build configuration list for PBXNativeTarget "hearhearTests" */;
+			buildPhases = (
+				ECCA76D82E7996BF004391D3 /* Sources */,
+				ECCA76D92E7996BF004391D3 /* Frameworks */,
+				ECCA76DA2E7996BF004391D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECCA76DE2E7996BF004391D3 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				ECCA76DF2E7996BF004391D3 /* hearhearTests */,
+			);
+			name = hearhearTests;
+			packageProductDependencies = (
+			);
+			productName = hearhearTests;
+			productReference = ECCA76DC2E7996BF004391D3 /* hearhearTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ECCA76E52E7996BF004391D3 /* hearhearUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECCA771F2E7996BF004391D3 /* Build configuration list for PBXNativeTarget "hearhearUITests" */;
+			buildPhases = (
+				ECCA76E22E7996BF004391D3 /* Sources */,
+				ECCA76E32E7996BF004391D3 /* Frameworks */,
+				ECCA76E42E7996BF004391D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECCA76E82E7996BF004391D3 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				ECCA76E92E7996BF004391D3 /* hearhearUITests */,
+			);
+			name = hearhearUITests;
+			packageProductDependencies = (
+			);
+			productName = hearhearUITests;
+			productReference = ECCA76E62E7996BF004391D3 /* hearhearUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		ECCA76F12E7996BF004391D3 /* hearhear Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECCA77152E7996BF004391D3 /* Build configuration list for PBXNativeTarget "hearhear Watch App" */;
+			buildPhases = (
+				ECCA76EE2E7996BF004391D3 /* Sources */,
+				ECCA76EF2E7996BF004391D3 /* Frameworks */,
+				ECCA76F02E7996BF004391D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				ECCA76F62E7996BF004391D3 /* hearhear Watch App */,
+			);
+			name = "hearhear Watch App";
+			packageProductDependencies = (
+			);
+			productName = "hearhear Watch App";
+			productReference = ECCA76F22E7996BF004391D3 /* hearhear Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ECCA77002E7996BF004391D3 /* hearhear Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECCA77222E7996BF004391D3 /* Build configuration list for PBXNativeTarget "hearhear Watch AppTests" */;
+			buildPhases = (
+				ECCA76FD2E7996BF004391D3 /* Sources */,
+				ECCA76FE2E7996BF004391D3 /* Frameworks */,
+				ECCA76FF2E7996BF004391D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECCA77032E7996BF004391D3 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				ECCA77042E7996BF004391D3 /* hearhear Watch AppTests */,
+			);
+			name = "hearhear Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "hearhear Watch AppTests";
+			productReference = ECCA77012E7996BF004391D3 /* hearhear Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ECCA770A2E7996BF004391D3 /* hearhear Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECCA77252E7996BF004391D3 /* Build configuration list for PBXNativeTarget "hearhear Watch AppUITests" */;
+			buildPhases = (
+				ECCA77072E7996BF004391D3 /* Sources */,
+				ECCA77082E7996BF004391D3 /* Frameworks */,
+				ECCA77092E7996BF004391D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECCA770D2E7996BF004391D3 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				ECCA770E2E7996BF004391D3 /* hearhear Watch AppUITests */,
+			);
+			name = "hearhear Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "hearhear Watch AppUITests";
+			productReference = ECCA770B2E7996BF004391D3 /* hearhear Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECCA76C72E7996BE004391D3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					ECCA76CE2E7996BE004391D3 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					ECCA76DB2E7996BF004391D3 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = ECCA76CE2E7996BE004391D3;
+					};
+					ECCA76E52E7996BF004391D3 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = ECCA76CE2E7996BE004391D3;
+					};
+					ECCA76F12E7996BF004391D3 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					ECCA77002E7996BF004391D3 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = ECCA76F12E7996BF004391D3;
+					};
+					ECCA770A2E7996BF004391D3 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = ECCA76F12E7996BF004391D3;
+					};
+				};
+			};
+			buildConfigurationList = ECCA76CA2E7996BE004391D3 /* Build configuration list for PBXProject "hearhear" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECCA76C62E7996BE004391D3;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = ECCA76D02E7996BE004391D3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECCA76CE2E7996BE004391D3 /* hearhear */,
+				ECCA76DB2E7996BF004391D3 /* hearhearTests */,
+				ECCA76E52E7996BF004391D3 /* hearhearUITests */,
+				ECCA76F12E7996BF004391D3 /* hearhear Watch App */,
+				ECCA77002E7996BF004391D3 /* hearhear Watch AppTests */,
+				ECCA770A2E7996BF004391D3 /* hearhear Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECCA76CD2E7996BE004391D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA76DA2E7996BF004391D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA76E42E7996BF004391D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA76F02E7996BF004391D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA76FF2E7996BF004391D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA77092E7996BF004391D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECCA76CB2E7996BE004391D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA76D82E7996BF004391D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA76E22E7996BF004391D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA76EE2E7996BF004391D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA76FD2E7996BF004391D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCA77072E7996BF004391D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECCA76DE2E7996BF004391D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECCA76CE2E7996BE004391D3 /* hearhear */;
+			targetProxy = ECCA76DD2E7996BF004391D3 /* PBXContainerItemProxy */;
+		};
+		ECCA76E82E7996BF004391D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECCA76CE2E7996BE004391D3 /* hearhear */;
+			targetProxy = ECCA76E72E7996BF004391D3 /* PBXContainerItemProxy */;
+		};
+		ECCA76F52E7996BF004391D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECCA76F12E7996BF004391D3 /* hearhear Watch App */;
+			targetProxy = ECCA76F42E7996BF004391D3 /* PBXContainerItemProxy */;
+		};
+		ECCA77032E7996BF004391D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECCA76F12E7996BF004391D3 /* hearhear Watch App */;
+			targetProxy = ECCA77022E7996BF004391D3 /* PBXContainerItemProxy */;
+		};
+		ECCA770D2E7996BF004391D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECCA76F12E7996BF004391D3 /* hearhear Watch App */;
+			targetProxy = ECCA770C2E7996BF004391D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		ECCA77132E7996BF004391D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 7229HA67NJ;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ECCA77142E7996BF004391D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 7229HA67NJ;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		ECCA77162E7996BF004391D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7229HA67NJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = hearhear;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.cvtlvnd.hearhear;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cvtlvnd.hearhear.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		ECCA77172E7996BF004391D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7229HA67NJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = hearhear;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.cvtlvnd.hearhear;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cvtlvnd.hearhear.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+		ECCA771A2E7996BF004391D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7229HA67NJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = hearhear;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cvtlvnd.hearhear;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ECCA771B2E7996BF004391D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7229HA67NJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = hearhear;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cvtlvnd.hearhear;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECCA771D2E7996BF004391D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7229HA67NJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cvtlvnd.hearhearTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hearhear.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/hearhear";
+			};
+			name = Debug;
+		};
+		ECCA771E2E7996BF004391D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7229HA67NJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cvtlvnd.hearhearTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hearhear.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/hearhear";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECCA77202E7996BF004391D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7229HA67NJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cvtlvnd.hearhearUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = hearhear;
+			};
+			name = Debug;
+		};
+		ECCA77212E7996BF004391D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7229HA67NJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cvtlvnd.hearhearUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = hearhear;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECCA77232E7996BF004391D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7229HA67NJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cvtlvnd.hearhear-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hearhear Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/hearhear Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		ECCA77242E7996BF004391D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7229HA67NJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cvtlvnd.hearhear-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hearhear Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/hearhear Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+		ECCA77262E7996BF004391D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7229HA67NJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cvtlvnd.hearhear-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "hearhear Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		ECCA77272E7996BF004391D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7229HA67NJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cvtlvnd.hearhear-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "hearhear Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECCA76CA2E7996BE004391D3 /* Build configuration list for PBXProject "hearhear" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECCA77132E7996BF004391D3 /* Debug */,
+				ECCA77142E7996BF004391D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECCA77152E7996BF004391D3 /* Build configuration list for PBXNativeTarget "hearhear Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECCA77162E7996BF004391D3 /* Debug */,
+				ECCA77172E7996BF004391D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECCA77192E7996BF004391D3 /* Build configuration list for PBXNativeTarget "hearhear" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECCA771A2E7996BF004391D3 /* Debug */,
+				ECCA771B2E7996BF004391D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECCA771C2E7996BF004391D3 /* Build configuration list for PBXNativeTarget "hearhearTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECCA771D2E7996BF004391D3 /* Debug */,
+				ECCA771E2E7996BF004391D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECCA771F2E7996BF004391D3 /* Build configuration list for PBXNativeTarget "hearhearUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECCA77202E7996BF004391D3 /* Debug */,
+				ECCA77212E7996BF004391D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECCA77222E7996BF004391D3 /* Build configuration list for PBXNativeTarget "hearhear Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECCA77232E7996BF004391D3 /* Debug */,
+				ECCA77242E7996BF004391D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECCA77252E7996BF004391D3 /* Build configuration list for PBXNativeTarget "hearhear Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECCA77262E7996BF004391D3 /* Debug */,
+				ECCA77272E7996BF004391D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECCA76C72E7996BE004391D3 /* Project object */;
+}
