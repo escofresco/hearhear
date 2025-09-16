@@ -1,19 +1,18 @@
-//
-//  ContentView.swift
-//  hearhear Watch App
-//
-//  Created by Erin Akarice on 9/16/25.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var reachability = PhoneReachabilityViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack(spacing: 12) {
+            if reachability.isPhoneReachable {
+                Text("iPhone is showing the greeting.")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            } else {
+                Text("Hello, world!")
+                    .font(.title3)
+            }
         }
         .padding()
     }
