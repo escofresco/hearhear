@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import WatchConnectivity
 
 struct ContentView: View {
     @StateObject private var recorder = BackgroundAudioRecorder()
+    @StateObject private var connectivity = ConnectivityStatusProvider()
 
     var body: some View {
         VStack(spacing: 24) {
+            Text(connectivity.isReachable ? "reachable" : "unreachable")
+                .font(.subheadline)
+
             Text(recorder.isRecording ? "Recording in 30-second chunks" : "Recorder is idle")
                 .font(.headline)
                 .multilineTextAlignment(.center)
@@ -68,4 +73,46 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+}
+
+final class ConnectivityStatusProvider: NSObject, ObservableObject {
+    @Published private(set) var isReachable = false
+
+    override init() {
+        super.init()
+        activateSessionIfNeeded()
+    }
+
+    private func activateSessionIfNeeded() {
+        guard WCSession.isSupported() else { return }
+        let session = WCSession.default
+        session.delegate = self
+        session.activate()
+        updateReachability(using: session)
+    }
+
+    private func updateReachability(using session: WCSession) {
+        let reachable = session.isReachable
+        DispatchQueue.main.async { [weak self] in
+            self?.isReachable = reachable
+        }
+    }
+}
+
+extension ConnectivityStatusProvider: WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        updateReachability(using: session)
+    }
+
+    func sessionReachabilityDidChange(_ session: WCSession) {
+        updateReachability(using: session)
+    }
+
+#if os(iOS)
+    func sessionDidBecomeInactive(_ session: WCSession) { }
+
+    func sessionDidDeactivate(_ session: WCSession) {
+        session.activate()
+    }
+#endif
 }
