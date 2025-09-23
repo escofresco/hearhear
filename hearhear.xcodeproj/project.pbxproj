@@ -645,6 +645,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "hearhear-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = hearhear;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "analyze your voice";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.cvtlvnd.hearhear;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -675,6 +676,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "hearhear-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = hearhear;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "analyze your voice";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.cvtlvnd.hearhear;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -706,6 +708,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = hearhear/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = hearhear;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -742,6 +745,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = hearhear/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = hearhear;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
