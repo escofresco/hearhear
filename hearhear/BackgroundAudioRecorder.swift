@@ -40,6 +40,7 @@ final class BackgroundAudioRecorder: NSObject, ObservableObject {
         self.recordingsDirectory = directory
         super.init()
         createRecordingsDirectoryIfNeeded()
+        loadExistingChunks()
     }
 
     func startRecording() {
@@ -118,6 +119,28 @@ final class BackgroundAudioRecorder: NSObject, ObservableObject {
         let manager = FileManager.default
         guard !manager.fileExists(atPath: recordingsDirectory.path) else { return }
         try? manager.createDirectory(at: recordingsDirectory, withIntermediateDirectories: true)
+    }
+
+    private func loadExistingChunks() {
+        let manager = FileManager.default
+        do {
+            let urls = try manager.contentsOfDirectory(
+                at: recordingsDirectory,
+                includingPropertiesForKeys: [.contentModificationDateKey],
+                options: [.skipsHiddenFiles]
+            )
+
+            let audioFiles = urls.filter { $0.pathExtension.lowercased() == "m4a" }
+            recordedChunks = audioFiles.sorted { lhs, rhs in
+                let lhsValues = try? lhs.resourceValues(forKeys: [.contentModificationDateKey])
+                let rhsValues = try? rhs.resourceValues(forKeys: [.contentModificationDateKey])
+                let lhsDate = lhsValues?.contentModificationDate ?? .distantPast
+                let rhsDate = rhsValues?.contentModificationDate ?? .distantPast
+                return lhsDate < rhsDate
+            }
+        } catch {
+            lastError = error
+        }
     }
 
     private func handleFailure(with error: Error) {
