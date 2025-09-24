@@ -1,8 +1,16 @@
 import Foundation
 import AVFoundation
+import SoundAnalysis
 #if canImport(UIKit)
 import UIKit
 #endif
+
+struct RecordedChunk: Identifiable, Hashable {
+    let url: URL
+    var hasSpeech: Bool?
+
+    var id: URL { url }
+}
 
 @MainActor
 final class BackgroundAudioRecorder: NSObject, ObservableObject {
@@ -22,11 +30,12 @@ final class BackgroundAudioRecorder: NSObject, ObservableObject {
 
     @Published private(set) var isRecording = false
     @Published private(set) var lastError: Error?
-    @Published private(set) var recordedChunks: [URL] = []
+    @Published private(set) var recordedChunks: [RecordedChunk] = []
 
     private let session = AVAudioSession.sharedInstance()
     private var audioRecorder: AVAudioRecorder?
     private var chunkIndex = 0
+    private let analysisQueue = DispatchQueue(label: "BackgroundAudioRecorder.Analysis", qos: .userInitiated)
     #if canImport(UIKit)
     private var backgroundTask: UIBackgroundTaskIdentifier = .invalid
     #endif
@@ -137,6 +146,10 @@ final class BackgroundAudioRecorder: NSObject, ObservableObject {
                 let lhsDate = lhsValues?.contentModificationDate ?? .distantPast
                 let rhsDate = rhsValues?.contentModificationDate ?? .distantPast
                 return lhsDate < rhsDate
+            }.map { RecordedChunk(url: $0, hasSpeech: nil) }
+
+            for index in recordedChunks.indices {
+                classifyChunk(at: index)
             }
         } catch {
             lastError = error
@@ -173,7 +186,8 @@ final class BackgroundAudioRecorder: NSObject, ObservableObject {
 extension BackgroundAudioRecorder: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
-            recordedChunks.append(recorder.url)
+            recordedChunks.append(RecordedChunk(url: recorder.url, hasSpeech: nil))
+            classifyChunk(at: recordedChunks.count - 1)
         } else {
             lastError = RecorderError.configurationFailed("Recording ended unexpectedly.")
         }
@@ -193,5 +207,60 @@ extension BackgroundAudioRecorder: AVAudioRecorderDelegate {
             lastError = error
         }
         stopRecording()
+    }
+}
+
+private extension BackgroundAudioRecorder {
+    func classifyChunk(at index: Int) {
+        guard recordedChunks.indices.contains(index) else { return }
+        let url = recordedChunks[index].url
+
+        analysisQueue.async {
+            let observer = ChunkClassificationObserver { [weak self] hasSpeech in
+                DispatchQueue.main.async {
+                    guard let self else { return }
+                    guard self.recordedChunks.indices.contains(index) else { return }
+                    self.recordedChunks[index].hasSpeech = hasSpeech
+                }
+            }
+
+            do {
+                let analyzer = try SNAudioFileAnalyzer(url: url)
+                let request = try SNClassifySoundRequest(classifierIdentifier: .speech)
+                try analyzer.add(request, withObserver: observer)
+                try analyzer.analyze()
+            } catch {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    guard self.recordedChunks.indices.contains(index) else { return }
+                    self.recordedChunks[index].hasSpeech = false
+                }
+            }
+        }
+    }
+}
+
+private final class ChunkClassificationObserver: NSObject, SNResultsObserving {
+    private var maxSpeechConfidence: Double = 0
+    private let completion: (Bool) -> Void
+
+    init(completion: @escaping (Bool) -> Void) {
+        self.completion = completion
+    }
+
+    func request(_ request: SNRequest, didProduce result: SNResult) {
+        guard let result = result as? SNClassificationResult else { return }
+        let classifications = result.classifications
+        if let speechClassification = classifications.first(where: { $0.identifier == SNClassifierIdentifier.speech.rawValue }) {
+            maxSpeechConfidence = max(maxSpeechConfidence, speechClassification.confidence)
+        }
+    }
+
+    func requestDidComplete(_ request: SNRequest) {
+        completion(maxSpeechConfidence >= 0.5)
+    }
+
+    func request(_ request: SNRequest, didFailWithError error: Error) {
+        completion(false)
     }
 }
