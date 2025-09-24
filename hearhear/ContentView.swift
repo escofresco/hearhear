@@ -32,13 +32,17 @@ struct ContentView: View {
                         .font(.headline)
                     ScrollView {
                         VStack(alignment: .leading, spacing: 4) {
-                            ForEach(recorder.recordedChunks, id: \.self) { url in
-                                Text(url.lastPathComponent)
-                                    .font(.caption)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(8)
-                                    .background(Color(.secondarySystemBackground))
-                                    .cornerRadius(8)
+                            ForEach(recorder.recordedChunks) { chunk in
+                                HStack(spacing: 12) {
+                                    Image(systemName: chunk.hasSpeaker ? "person.wave.2.fill" : "person.slash.fill")
+                                        .foregroundColor(chunk.hasSpeaker ? .green : Color.secondary)
+                                    Text(chunk.url.lastPathComponent)
+                                        .font(.caption)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }
+                                .padding(8)
+                                .background(Color(.secondarySystemBackground))
+                                .cornerRadius(8)
                             }
                         }
                     }
