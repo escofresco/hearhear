@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import Combine
+import WatchConnectivity
 
 struct ContentView: View {
     @StateObject private var recorder = BackgroundAudioRecorder()
+    @StateObject private var connectivity = ConnectivityStatusProvider()
 
     var body: some View {
         VStack(spacing: 24) {
+            Text(connectivity.isReachable ? "reachable" : "unreachable")
+                .font(.subheadline)
+
             Text(recorder.isRecording ? "Recording in 30-second chunks" : "Recorder is idle")
                 .font(.headline)
                 .multilineTextAlignment(.center)
@@ -68,4 +74,67 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+}
+
+final class ConnectivityStatusProvider: NSObject, ObservableObject {
+    @Published private(set) var isReachable = false
+
+    private var session: WCSession?
+    private var reachabilityPolling: AnyCancellable?
+
+    override init() {
+        super.init()
+        activateSessionIfNeeded()
+    }
+
+    deinit {
+        reachabilityPolling?.cancel()
+    }
+
+    private func activateSessionIfNeeded() {
+        guard WCSession.isSupported() else { return }
+        let session = WCSession.default
+        self.session = session
+        session.delegate = self
+        session.activate()
+        updateReachability(using: session)
+        startReachabilityPollingIfNeeded()
+    }
+
+    private func startReachabilityPollingIfNeeded() {
+#if os(watchOS)
+        guard reachabilityPolling == nil else { return }
+        reachabilityPolling = Timer.publish(every: 2, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                guard let session = self?.session else { return }
+                self?.updateReachability(using: session)
+            }
+#endif
+    }
+
+    private func updateReachability(using session: WCSession) {
+        let reachable = session.activationState == .activated && session.isReachable
+        DispatchQueue.main.async { [weak self] in
+            self?.isReachable = reachable
+        }
+    }
+}
+
+extension ConnectivityStatusProvider: WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        updateReachability(using: session)
+    }
+
+    func sessionReachabilityDidChange(_ session: WCSession) {
+        updateReachability(using: session)
+    }
+
+#if os(iOS)
+    func sessionDidBecomeInactive(_ session: WCSession) { }
+
+    func sessionDidDeactivate(_ session: WCSession) {
+        session.activate()
+    }
+#endif
 }
