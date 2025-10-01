@@ -40,7 +40,7 @@ final class BackgroundAudioRecorder: NSObject, ObservableObject {
         self.recordingsDirectory = directory
         super.init()
         createRecordingsDirectoryIfNeeded()
-        loadExistingChunks()
+        refreshRecordedChunksFromDisk()
     }
 
     func startRecording() {
@@ -121,7 +121,7 @@ final class BackgroundAudioRecorder: NSObject, ObservableObject {
         try? manager.createDirectory(at: recordingsDirectory, withIntermediateDirectories: true)
     }
 
-    private func loadExistingChunks() {
+    private func refreshRecordedChunksFromDisk() {
         let manager = FileManager.default
         do {
             let urls = try manager.contentsOfDirectory(
@@ -136,7 +136,7 @@ final class BackgroundAudioRecorder: NSObject, ObservableObject {
                 let rhsValues = try? rhs.resourceValues(forKeys: [.contentModificationDateKey])
                 let lhsDate = lhsValues?.contentModificationDate ?? .distantPast
                 let rhsDate = rhsValues?.contentModificationDate ?? .distantPast
-                return lhsDate < rhsDate
+                return lhsDate > rhsDate
             }
         } catch {
             lastError = error
@@ -176,7 +176,7 @@ extension BackgroundAudioRecorder: AVAudioRecorderDelegate {
             guard let self else { return }
 
             if flag {
-                self.recordedChunks.append(recorder.url)
+                self.refreshRecordedChunksFromDisk()
             } else {
                 self.lastError = RecorderError.configurationFailed("Recording ended unexpectedly.")
             }
