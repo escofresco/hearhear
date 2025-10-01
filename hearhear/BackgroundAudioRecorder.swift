@@ -171,27 +171,34 @@ final class BackgroundAudioRecorder: NSObject, ObservableObject {
 }
 
 extension BackgroundAudioRecorder: AVAudioRecorderDelegate {
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if flag {
-            recordedChunks.append(recorder.url)
-        } else {
-            lastError = RecorderError.configurationFailed("Recording ended unexpectedly.")
-        }
+    nonisolated func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        Task { @MainActor [weak self] in
+            guard let self else { return }
 
-        guard isRecording else { return }
+            if flag {
+                self.recordedChunks.append(recorder.url)
+            } else {
+                self.lastError = RecorderError.configurationFailed("Recording ended unexpectedly.")
+            }
 
-        do {
-            try startNewChunk()
-        } catch {
-            lastError = error
-            stopRecording()
+            guard self.isRecording else { return }
+
+            do {
+                try self.startNewChunk()
+            } catch {
+                self.lastError = error
+                self.stopRecording()
+            }
         }
     }
 
-    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
-        if let error {
-            lastError = error
+    nonisolated func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            if let error {
+                self.lastError = error
+            }
+            self.stopRecording()
         }
-        stopRecording()
     }
 }
