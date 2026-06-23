@@ -1,11 +1,23 @@
 import Foundation
 import AVFoundation
+import CoreMedia
+#if canImport(Speech)
+import Speech
+#endif
 #if canImport(UIKit)
 import UIKit
 #endif
 
 @MainActor
 final class BackgroundAudioRecorder: NSObject, ObservableObject {
+    struct RecordedChunk: Identifiable, Hashable {
+        let url: URL
+        let hasSpeaker: Bool
+        let modificationDate: Date
+
+        var id: URL { url }
+    }
+
     enum RecorderError: LocalizedError {
         case permissionDenied
         case configurationFailed(String)
@@ -22,7 +34,7 @@ final class BackgroundAudioRecorder: NSObject, ObservableObject {
 
     @Published private(set) var isRecording = false
     @Published private(set) var lastError: Error?
-    @Published private(set) var recordedChunks: [URL] = []
+    @Published private(set) var recordedChunks: [RecordedChunk] = []
 
     private let session = AVAudioSession.sharedInstance()
     private var audioRecorder: AVAudioRecorder?
@@ -33,6 +45,11 @@ final class BackgroundAudioRecorder: NSObject, ObservableObject {
 
     private let chunkDuration: TimeInterval = 30
     private let recordingsDirectory: URL
+    private static let rmsPresenceThreshold: Double = 0.01
+    private static let speakerDetectionQueue = DispatchQueue(label: "com.hearhear.speaker-detection")
+#if canImport(Speech)
+    private var hasRequestedSpeechAuthorization = false
+#endif
 
     override init() {
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -53,7 +70,9 @@ final class BackgroundAudioRecorder: NSObject, ObservableObject {
                     self.lastError = RecorderError.permissionDenied
                     return
                 }
-                self.beginRecordingFlow()
+                self.requestSpeechAuthorizationIfNeeded {
+                    self.beginRecordingFlow()
+                }
             }
         }
     }
@@ -131,17 +150,168 @@ final class BackgroundAudioRecorder: NSObject, ObservableObject {
             )
 
             let audioFiles = urls.filter { $0.pathExtension.lowercased() == "m4a" }
-            recordedChunks = audioFiles.sorted { lhs, rhs in
+            let sortedFiles = audioFiles.sorted { lhs, rhs in
                 let lhsValues = try? lhs.resourceValues(forKeys: [.contentModificationDateKey])
                 let rhsValues = try? rhs.resourceValues(forKeys: [.contentModificationDateKey])
                 let lhsDate = lhsValues?.contentModificationDate ?? .distantPast
                 let rhsDate = rhsValues?.contentModificationDate ?? .distantPast
                 return lhsDate < rhsDate
             }
+            updateRecordedChunks(from: sortedFiles)
         } catch {
             lastError = error
         }
     }
+
+    private func updateRecordedChunks(from urls: [URL]) {
+        guard !urls.isEmpty else {
+            recordedChunks = []
+            return
+        }
+
+        Self.speakerDetectionQueue.async { [weak self] in
+            let chunks = urls.map(Self.makeRecordedChunk(for:))
+                .sorted { $0.modificationDate < $1.modificationDate }
+            DispatchQueue.main.async {
+                self?.recordedChunks = chunks
+            }
+        }
+    }
+
+    private func processRecordedChunk(at url: URL) {
+        Self.speakerDetectionQueue.async { [weak self] in
+            let chunk = Self.makeRecordedChunk(for: url)
+            DispatchQueue.main.async {
+                self?.appendRecordedChunk(chunk)
+            }
+        }
+    }
+
+    private func appendRecordedChunk(_ chunk: RecordedChunk) {
+        recordedChunks.append(chunk)
+        recordedChunks.sort { $0.modificationDate < $1.modificationDate }
+    }
+
+    private static func makeRecordedChunk(for url: URL) -> RecordedChunk {
+        let hasSpeaker = detectSpeakerPresence(at: url)
+        let resourceValues = try? url.resourceValues(forKeys: [.contentModificationDateKey])
+        let modificationDate = resourceValues?.contentModificationDate ?? .distantPast
+        return RecordedChunk(url: url, hasSpeaker: hasSpeaker, modificationDate: modificationDate)
+    }
+
+    private static func detectSpeakerPresence(at url: URL) -> Bool {
+        #if canImport(Speech)
+        if #available(iOS 10, macOS 10.15, *) {
+            if let result = detectSpeakerPresenceWithSpeech(at: url) {
+                return result
+            }
+        }
+        #endif
+
+        let asset = AVAsset(url: url)
+        guard let track = asset.tracks(withMediaType: .audio).first else { return false }
+
+        let reader: AVAssetReader
+        do {
+            reader = try AVAssetReader(asset: asset)
+        } catch {
+            return false
+        }
+
+        let outputSettings: [String: Any] = [
+            AVFormatIDKey: kAudioFormatLinearPCM,
+            AVLinearPCMIsFloatKey: true,
+            AVLinearPCMBitDepthKey: 32,
+            AVLinearPCMIsNonInterleaved: false,
+            AVLinearPCMIsBigEndianKey: false
+        ]
+
+        let output = AVAssetReaderTrackOutput(track: track, outputSettings: outputSettings)
+        guard reader.canAdd(output) else { return false }
+        reader.add(output)
+
+        guard reader.startReading() else { return false }
+        defer { reader.cancelReading() }
+
+        var sumSquares: Double = 0
+        var sampleCount: Int = 0
+
+        while let sampleBuffer = output.copyNextSampleBuffer() {
+            guard let blockBuffer = CMSampleBufferGetDataBuffer(sampleBuffer) else { continue }
+            let length = CMBlockBufferGetDataLength(blockBuffer)
+            var data = Data(count: length)
+            data.withUnsafeMutableBytes { destination in
+                guard let baseAddress = destination.baseAddress else { return }
+                CMBlockBufferCopyDataBytes(blockBuffer, atOffset: 0, dataLength: length, destination: baseAddress)
+            }
+
+            let floatCount = length / MemoryLayout<Float>.size
+            data.withUnsafeBytes { (buffer: UnsafeRawBufferPointer) in
+                let floatBuffer = buffer.bindMemory(to: Float.self)
+                for sample in floatBuffer {
+                    sumSquares += Double(sample * sample)
+                }
+            }
+
+            sampleCount += floatCount
+            CMSampleBufferInvalidate(sampleBuffer)
+        }
+
+        guard sampleCount > 0 else { return false }
+        let rms = sqrt(sumSquares / Double(sampleCount))
+        return rms > rmsPresenceThreshold
+    }
+
+    #if canImport(Speech)
+    @available(iOS 10, macOS 10.15, *)
+    private static func detectSpeakerPresenceWithSpeech(at url: URL) -> Bool? {
+        let authorizationStatus = SFSpeechRecognizer.authorizationStatus()
+        guard authorizationStatus == .authorized else { return nil }
+        guard let recognizer = SFSpeechRecognizer(), recognizer.isAvailable else { return nil }
+
+        let request = SFSpeechURLRecognitionRequest(url: url)
+        request.shouldReportPartialResults = true
+        if #available(iOS 13, macOS 10.15, *) {
+            if recognizer.supportsOnDeviceRecognition {
+                request.requiresOnDeviceRecognition = true
+            }
+        }
+
+        let semaphore = DispatchSemaphore(value: 0)
+        var detectedSpeech = false
+        var encounteredError = false
+
+        guard let task = recognizer.recognitionTask(with: request) { result, error in
+            if let result {
+                let transcript = result.bestTranscription.formattedString.trimmingCharacters(in: .whitespacesAndNewlines)
+                if !transcript.isEmpty {
+                    detectedSpeech = true
+                }
+                if result.isFinal {
+                    semaphore.signal()
+                }
+            } else if error != nil {
+                encounteredError = true
+                semaphore.signal()
+            }
+        } else {
+            return nil
+        }
+
+        let waitResult = semaphore.wait(timeout: .now() + 15)
+        task.cancel()
+
+        if waitResult == .timedOut {
+            return detectedSpeech ? true : nil
+        }
+
+        if encounteredError && !detectedSpeech {
+            return nil
+        }
+
+        return detectedSpeech
+    }
+    #endif
 
     private func handleFailure(with error: Error) {
         lastError = error
@@ -173,7 +343,7 @@ final class BackgroundAudioRecorder: NSObject, ObservableObject {
 extension BackgroundAudioRecorder: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
-            recordedChunks.append(recorder.url)
+            processRecordedChunk(at: recorder.url)
         } else {
             lastError = RecorderError.configurationFailed("Recording ended unexpectedly.")
         }
@@ -193,5 +363,32 @@ extension BackgroundAudioRecorder: AVAudioRecorderDelegate {
             lastError = error
         }
         stopRecording()
+    }
+}
+
+extension BackgroundAudioRecorder {
+    private func requestSpeechAuthorizationIfNeeded(completion: @escaping () -> Void) {
+        #if canImport(Speech)
+        if #available(iOS 10, macOS 10.15, *) {
+            let status = SFSpeechRecognizer.authorizationStatus()
+            switch status {
+            case .notDetermined:
+                if hasRequestedSpeechAuthorization {
+                    completion()
+                } else {
+                    hasRequestedSpeechAuthorization = true
+                    SFSpeechRecognizer.requestAuthorization { _ in
+                        DispatchQueue.main.async {
+                            completion()
+                        }
+                    }
+                }
+                return
+            default:
+                break
+            }
+        }
+        #endif
+        completion()
     }
 }
