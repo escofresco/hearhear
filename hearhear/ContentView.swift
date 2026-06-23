@@ -32,13 +32,18 @@ struct ContentView: View {
                         .font(.headline)
                     ScrollView {
                         VStack(alignment: .leading, spacing: 4) {
-                            ForEach(recorder.recordedChunks, id: \.self) { url in
-                                Text(url.lastPathComponent)
-                                    .font(.caption)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(8)
-                                    .background(Color(.secondarySystemBackground))
-                                    .cornerRadius(8)
+                            ForEach(recorder.recordedChunks) { chunk in
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(chunk.url.lastPathComponent)
+                                        .font(.caption)
+                                    Text(statusText(for: chunk))
+                                        .font(.caption2)
+                                        .foregroundColor(statusColor(for: chunk))
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(8)
+                                .background(Color(.secondarySystemBackground))
+                                .cornerRadius(8)
                             }
                         }
                     }
@@ -68,4 +73,28 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+}
+
+private extension ContentView {
+    func statusText(for chunk: RecordedChunk) -> String {
+        switch chunk.hasSpeech {
+        case true:
+            return "Speech detected"
+        case false:
+            return "No speech detected"
+        case nil:
+            return "Analyzing for speech..."
+        }
+    }
+
+    func statusColor(for chunk: RecordedChunk) -> Color {
+        switch chunk.hasSpeech {
+        case true:
+            return Color.green
+        case false:
+            return Color.secondary
+        case nil:
+            return Color.orange
+        }
+    }
 }
